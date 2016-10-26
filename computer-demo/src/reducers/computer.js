@@ -1,6 +1,6 @@
 import { ADD } from '../actions/computer';
 
-const initializeState = { value: 0 };
+const initializeState = { value: 1 };
 
 export default function computer(state = initializeState, action) {
     switch (action.type) {
