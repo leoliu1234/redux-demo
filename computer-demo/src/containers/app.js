@@ -14,21 +14,21 @@ class App extends React.Component {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="columns small-3"><a className="button tiny" onClick={show}>1</a></div>
-                    <div className="columns small-3"><a className="button tiny" onClick={show}>2</a></div>
-                    <div className="columns small-3"><a className="button tiny" onClick={show}>3</a></div>
-                    <div className="columns small-3"><a className="button tiny" onClick={show}>+</a></div>
+                    <div className="columns small-3"><a className="button tiny" onClick={show.bind(this, 1)}>1</a></div>
+                    <div className="columns small-3"><a className="button tiny" onClick={show.bind(this, 2)}>2</a></div>
+                    <div className="columns small-3"><a className="button tiny" onClick={show.bind(this, 3)}>3</a></div>
+                    <div className="columns small-3"><a className="button tiny" onClick={show.bind(this, 4)}>+</a></div>
                 </div>
                 <div className="row">
-                    <div className="columns small-3"><a className="button tiny">4</a></div>
-                    <div className="columns small-3"><a className="button tiny">5</a></div>
-                    <div className="columns small-3"><a className="button tiny">6</a></div>
-                    <div className="columns small-3"><a className="button tiny">-</a></div>
+                    <div className="columns small-3"><a className="button tiny" onClick={show.bind(this, 4)}>4</a></div>
+                    <div className="columns small-3"><a className="button tiny" onClick={show.bind(this, 5)}>5</a></div>
+                    <div className="columns small-3"><a className="button tiny" onClick={show.bind(this, 6)}>6</a></div>
+                    <div className="columns small-3"><a className="button tiny" onClick={show.bind(this, 7)}>-</a></div>
                 </div>
                 <div className="row">
-                    <div className="columns small-3"><a className="button tiny">7</a></div>
-                    <div className="columns small-3"><a className="button tiny">8</a></div>
-                    <div className="columns small-3"><a className="button tiny">9</a></div>
+                    <div className="columns small-3"><a className="button tiny" onClick={show.bind(this, 7)}>7</a></div>
+                    <div className="columns small-3"><a className="button tiny" onClick={show.bind(this, 8)}>8</a></div>
+                    <div className="columns small-3"><a className="button tiny" onClick={show.bind(this, 9)}>9</a></div>
                     <div className="columns small-3"><a className="button tiny">=</a></div>
                 </div>
             </div>
