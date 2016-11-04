@@ -1,5 +1,6 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import Picture from './picture';
 import * as ComputerActions from '../actions/computer';
 import React, { PropTypes } from 'react';
 
@@ -34,6 +35,8 @@ class App extends React.Component {
                 <div className="row">
                     <div className="columns small-12"><a className="button tiny" onClick={reset}>Reset</a></div>
                 </div>
+                <hr/>
+                <Picture/>
             </div>
         );
     }
