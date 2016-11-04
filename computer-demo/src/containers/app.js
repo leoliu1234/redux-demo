@@ -5,7 +5,7 @@ import React, { PropTypes } from 'react';
 
 class App extends React.Component {
     render() {
-        const {result, setValue, setOperator} = this.props;
+        const {result, setValue, setOperator, reset, getResult} = this.props;
         return (
             <div id="main">
                 <div className="row">
@@ -29,7 +29,10 @@ class App extends React.Component {
                     <div className="columns small-3"><a className="button tiny" onClick={setValue.bind(this, 7)}>7</a></div>
                     <div className="columns small-3"><a className="button tiny" onClick={setValue.bind(this, 8)}>8</a></div>
                     <div className="columns small-3"><a className="button tiny" onClick={setValue.bind(this, 9)}>9</a></div>
-                    <div className="columns small-3"><a className="button tiny">=</a></div>
+                    <div className="columns small-3"><a className="button tiny" onClick={getResult}>=</a></div>
+                </div>
+                <div className="row">
+                    <div className="columns small-12"><a className="button tiny" onClick={reset}>Reset</a></div>
                 </div>
             </div>
         );
@@ -39,7 +42,9 @@ class App extends React.Component {
 App.propTypes = {
     result: PropTypes.number.isRequired,
     setValue: PropTypes.func.isRequired,
-    setOperator: PropTypes.func.isRequired
+    setOperator: PropTypes.func.isRequired,
+    reset: PropTypes.func.isRequired,
+    getResult: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {

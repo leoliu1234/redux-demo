@@ -1,4 +1,4 @@
-import { ADD, SET_VALUE, SET_OPERATOR } from '../actions/computer';
+import { ADD, SET_VALUE, SET_OPERATOR, RESET, GETRESULT } from '../actions/computer';
 
 const initializeState = { newValue: 0, oldValue: 0, result: '', operator: '' };
 
@@ -8,18 +8,13 @@ export default function computer(state = initializeState, action) {
 
             return Object.assign({}, state, { value: state.value + 1 });
         case SET_VALUE: {
-            let newValue = state.newValue;
-            let oldValue = state.newValue;
-            let result = newValue;
+            let newValue = state.newValue * 10 + action.value;
+            let oldValue = state.oldValue;
+            let result = state.result;
             if (state.operator) {
-                if (state.newValue === 0) {
-                    newValue = action.value;
-                } else {
-                    newValue = newValue * 10 + action.value;
-                }
                 result = oldValue + ' ' + state.operator + ' ' + newValue;
             } else {
-                newValue = state.newValue * 10 + action.value;
+                result = newValue;
             }
 
             return Object.assign({}, state, { newValue: newValue, oldValue: oldValue, result: result });
@@ -27,22 +22,24 @@ export default function computer(state = initializeState, action) {
         case SET_OPERATOR: {
             let oldValue = state.newValue;
             let newValue = 0;
-            // switch (state.operator) {
-            //     case "+":
-            //         if (state.oldValue && state.newValue) {
-            //             newValue = state.oldValue + state.newValue;
-            //         }
-            //         break;
-            //     case "-":
-            //         if (state.oldValue && state.newValue) {
-            //             newValue = state.oldValue - state.newValue;
-            //         }
-            //         break;
-            // }
-            let result = oldValue + ' ' + state.operator + ' ' + newValue || '';
+            let result = oldValue + ' ' + action.operator;
             return Object.assign({}, state, { newValue: newValue, oldValue: oldValue, operator: action.operator, result: result });
         }
+        case RESET:
 
+            return Object.assign({}, state, { newValue: 0, oldValue: 0, operator: "", result: "0" });
+        case GETRESULT:
+            var result = '';
+            switch (state.operator) {
+                case '+':
+                    result = state.oldValue + state.newValue;
+                    break;
+                case '-':
+                    result = state.oldValue - state.newValue;
+                    break;
+            }
+
+            return Object.assign({}, state, { newValue: 0, oldValue: 0, operator: "", result: result });
         default:
             return state;
     }
