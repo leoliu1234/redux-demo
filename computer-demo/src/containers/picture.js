@@ -1,6 +1,7 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import React from 'react';
+import { Link } from 'react-router'
 import * as PictureActions from '../actions/picture'
 
 class Picture extends React.Component {
@@ -17,6 +18,7 @@ class Picture extends React.Component {
             <div>
                 <table>{pictures}</table>
                 <a className="button tiny" onClick={addPicture}>Add</a>
+                <Link to="/home">Home</Link>
             </div>
         );
     }
